@@ -1,0 +1,75 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "lista2_7",
+      "request": "launch",
+      "mainClass": "lista2_7",
+      "projectName": "UFF-Java_1ed9133"
+    },
+    {
+      "type": "java",
+      "name": "lista4_4",
+      "request": "launch",
+      "mainClass": "lista4_4",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista4_3",
+      "request": "launch",
+      "mainClass": "lista4_3",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista4_2",
+      "request": "launch",
+      "mainClass": "lista4_2",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista4_1",
+      "request": "launch",
+      "mainClass": "lista4_1",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista2_6",
+      "request": "launch",
+      "mainClass": "lista2_6",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista3_3",
+      "request": "launch",
+      "mainClass": "lista3_3",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista3_1",
+      "request": "launch",
+      "mainClass": "lista3_1",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "lista2",
+      "request": "launch",
+      "mainClass": "lista2",
+      "projectName": "UFF Java_d7e1662d"
+    },
+    {
+      "type": "java",
+      "name": "Java: Rodar Arquivo Atual",
+      "request": "launch",
+      "mainClass": "${file}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

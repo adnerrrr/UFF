@@ -1,0 +1,3 @@
+temos a classe abstrata usuario com nome e senha que é extendida para o funcionario e o cliente
+o cliente tem seus dados cadastrais e o funcionario tem seus metodos
+o gerente extende o funcionario e tem seu metodo de fechar o caixa

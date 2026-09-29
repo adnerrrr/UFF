@@ -1,0 +1,5 @@
+sleep() é um método estático da classe Thread (não é chamado sobre um ojeto específico).
+Ele é usado para pausar a execução da thread por um período de tempo fixo, em milissegundos.
+
+join() é um método de instância (chamado sobre um objeto Thread).
+Ele é usado para pausar a thread atual e esperar até que a instânciada termine completamente sua execução, independente do tempo que demore.

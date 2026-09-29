@@ -1,0 +1,7 @@
+O modificador synchronized garante que apenas um thread por voz possa executar um método sobre um mesmo objeto, com isso, ela 
+tranca o objeto e qualquer outra thread que tente usar um método nesse objeto fica esperando a primeira terminar.
+
+Deve ser usada sempre que múltiplas threads acessem e modifiquem um mesmo dado compartilhado, pois evita o Race Condition.
+
+Não deve ser usado em todos os métodos pois iria reduzir o paralelismo, já que as threads passam a ficar em filas esperando sua vez, e 
+isso aumenta o risco de Deadlocks, em que duas threads travam, cada uma aguardando o desbloqueio da outra.
