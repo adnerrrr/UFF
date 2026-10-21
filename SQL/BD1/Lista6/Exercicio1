@@ -1,0 +1,52 @@
+-- SQLite
+
+-- Exercício: Criar tabelas do
+-- esquema abaixo
+
+-- Maquina(CodMaq, NomeMaq)
+-- -- Tabela com máquinas usadas em uma fábrica para fabricar produtos
+
+-- Produto(CodProd, DescrProd, Peso)
+-- -- Tabela com os produtos fabricados
+
+-- MaqProd(CodMaq, CodProd, Tempo)
+-- CodMaq referencia Maquina
+-- CodProd referencia Produto
+-- -- Tabela que informa em que máquinas cada produto pode ser fabricado e qual
+-- o respectivo tempo de produção, em minutos
+
+-- ComposProd(CodProdComposto, CodProdComponente, Quant)
+-- CodProdComposto referencia Produto
+-- CodProdComponente referencia Produto
+-- -- Tabela que informa a composição de cada produto. Para cada produto,
+-- informa quais os produtos que o compõem, e em que quantidade
+
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE Maquina (
+    CodMaq INT NOT NULL PRIMARY KEY,
+    NomeMaq VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE Produto(
+    CodProd INT NOT NULL PRIMARY KEY,
+    DescrProd VARCHAR(50) NOT NULL,
+    Peso FLOAT NOT NULL
+);
+
+CREATE TABLE MaqProd(
+    CodMaq INT NOT NULL,
+    CodProd INT NOT NULL,
+    PRIMARY KEY (CodMaq, CodProd),
+    FOREIGN KEY (CodMaq) REFERENCES Maquina (CodMaq) ON DELETE CASCADE,
+    FOREIGN KEY (CodProd) REFERENCES Produto(CodProd) ON DELETE CASCADE
+);
+
+CREATE TABLE ComposProd(
+    CodProdComposto INT NOT NULL,
+    CodProdComponente INT NOT NULL,
+    Quant INT NOT NULL,
+    PRIMARY KEY (CodProdComposto, CodProdComponente),
+    FOREIGN KEY (CodProdComposto) REFERENCES Produto(CodProd) ON DELETE CASCADE,
+    FOREIGN KEY (CodProdComponente) REFERENCES Produto(CodProd) ON DELETE CASCADE
+);

@@ -68,7 +68,6 @@ def achaGrampo(fita, pref, k):
         suf = fita[k+i:k+i+k]
         if (pref == complementar(reversa(suf))) and (len(arco) > 2) and (len(arco) < k):
             guardaGrampo(pref, arco, suf)
-    
 
 def guardaGrampo(pref, arco, suf):
     global grampos, pos
