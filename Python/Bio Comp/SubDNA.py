@@ -58,7 +58,7 @@ def indiceInicial(valores, alvo):
     return inicio
 
 
-def _enumerarSequencias(padrao, posicoes, contagens, idx_padrao, idx_seq, caminho):
+def enumerarSequencias(padrao, posicoes, contagens, idx_padrao, idx_seq, caminho):
     # Quando todas as letras do padrão foram encontradas, retorna os índices.
     if idx_padrao == len(padrao):
         yield caminho
@@ -71,7 +71,7 @@ def _enumerarSequencias(padrao, posicoes, contagens, idx_padrao, idx_seq, caminh
         pos = candidatas[i]
         # Evita explorar caminhos que, segundo a tabela, não podem ser completados.
         if contagens[idx_padrao + 1][pos + 1]:
-            yield from _enumerarSequencias(
+            yield from enumerarSequencias(
                 padrao, posicoes, contagens, idx_padrao + 1, pos + 1, caminho + [pos]
             )
 
@@ -92,7 +92,7 @@ def buscaSequencias(padrao, sequencia, idx_padrao=0, idx_seq=0, caminho=None):
     # Calcula previamente a quantidade de continuações possíveis e usa os índices
     # agrupados por letra para enumerar apenas combinações válidas.
     contagens = contagensSufixos(padrao, sequencia)
-    yield from _enumerarSequencias(
+    yield from enumerarSequencias(
         padrao,
         posicoesPorLetra(sequencia),
         contagens,
@@ -126,7 +126,7 @@ def subSequencias(sequencias, sequencia_principal):
         print(f"{i}) {padrao}: Total de ocorrências: {total}.")
 
         # Gera e imprime no máximo o limite definido, embora a contagem seja completa.
-        caminhos = _enumerarSequencias(padrao, posicoes, contagens, 0, 0, [])
+        caminhos = enumerarSequencias(padrao, posicoes, contagens, 0, 0, [])
         for numero, caminho in enumerate(caminhos, start=1):
             print(f"    Ocorrência {numero}: índices -> {caminho}")
             if numero == LIMITE_EXIBICAO:
@@ -143,7 +143,6 @@ def testa():
     
     print("-" * 50)
     
-    # Define os padrões: subcadeias contíguas e subsequências não necessariamente contíguas.
     sub_cadeias = ["TTGACA", "TATATT", "CGCGCGCGCG"]
     sub_sequencias = ["TTGACATATATT", "CGCGCGCGCG", "ATCCAGAATTCTCGGA"]
     
@@ -159,6 +158,5 @@ def main():
             y = False
 
 
-# Executa main somente quando este arquivo é iniciado diretamente.
 if __name__ == "__main__":
     main()
